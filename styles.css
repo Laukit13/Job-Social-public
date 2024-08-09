@@ -1,0 +1,337 @@
+/* Global Styles */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #CF4F4C;
+  color: #ffffff;
+}
+
+/* Navigation Header Styles */
+.nav-header {
+  background-color: #f8f8f800;
+  padding: 1rem 0;
+  position: relative;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.nav-logo {
+  color: #ffffff;
+  font-size: 1.rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* Job Heroes Section Styles */
+.job-heroes-section {
+  background-color: #CF4F4C;
+  height:20px;
+
+  color: #ffffff;
+}
+
+.job-heroes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.job-heroes-image {
+  width: 5px;
+  max-height: 10px
+  background-color: #E8E8E8;
+}
+
+.job-heroes-content {
+  text-align: center;
+}
+
+.job-heroes-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.job-heroes-emphasis {
+  color: #480E01;
+}
+
+.job-heroes-cta {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: #480E01;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.job-heroes-subtitle {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+
+
+
+
+
+
+
+/* Job Heroes Section Styles */
+.job-heroes-section {
+  background-color: #CF4F4C;
+  padding: 40px 20px;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.job-heroes-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.job-heroes-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  background-color: #E8E8E8;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.job-heroes-content {
+  text-align: center;
+  max-width: 500px;
+}
+
+.job-heroes-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.job-heroes-emphasis {
+  color: #480E01;
+}
+
+.job-heroes-cta {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: #480E01;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.job-heroes-subtitle {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+/* Resume Analyzer Section Styles */
+.resume-analyzer-section {
+  background-color: #480E01;
+  padding: 60px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.resume-analyzer-container {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.title-area {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title-area h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.main {
+  background: #FFFFFF;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  color: #333333;
+}
+
+.main h2 {
+  color: #480E01;
+  margin-top: 0;
+  text-align: center;
+}
+
+.file-upload {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload label {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #CF4F4C;
+  color: #FFFFFF;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload label:hover {
+  background-color: #bb3e3b;
+}
+
+#file-name {
+  margin-top: 10px;
+  font-style: italic;
+  font-weight: 300;
+  color: #666666;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #CF4F4C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #bb3e3b;
+}
+
+#analysis {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  color: #333333;
+}
+
+.analysis-item {
+  margin-bottom: 15px;
+}
+
+.analysis-item span {
+  font-weight: bold;
+}
+
+.bad {
+  color: #D32F2F;
+}
+
+.good {
+  color: #388E3C;
+}
+
+.explanation {
+  font-style: italic;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+.whatsapp-cta {
+  text-align: center;
+  margin-top: 40px;
+  padding: 30px;
+  background-color: #2ffa6f;
+  border-radius: 10px;
+  color: #000000;
+}
+
+.whatsapp-button {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 12px 10px;
+  width: 100%;
+  text-decoration: none;
+  border-radius: 25px;
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  background-color: #F0F0F0;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .job-heroes-container {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+  }
+  .job-heroes-image {
+      width: 50%;
+      margin-bottom: 0;
+      margin-right: 40px;
+  }
+  .job-heroes-content {
+      width: 40%;
+      text-align: left;
+  }
+  .job-heroes-title {
+      font-size: 2.5rem;
+  }
+}
