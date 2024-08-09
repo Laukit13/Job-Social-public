@@ -3,47 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Analyisis</title>
+    <title>CareerBoost - Resume Analyzer</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation Header -->
-    <nav class="nav-header">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">Job Social</a>
+    <header class="nav-header">
+        <nav class="nav-container">
+            <a href="#" class="nav-logo">CareerBoost</a>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Job Heroes Section -->
     <section class="job-heroes-section">
         <div class="job-heroes-container">
             <img src="image/3dresume.png" alt="Job Heroes" class="job-heroes-image">
             <div class="job-heroes-content">
                 <h2 class="job-heroes-title">Does your resume work for <span class="job-heroes-emphasis">Landing Interviews?</span></h2>
                 <a href="#" class="job-heroes-cta">Check for free</a>
-                <p class="job-heroes-subtitle">You didn't come this far to stop</p>
+                <p class="job-heroes-subtitle">Scroll down to upload</p>
             </div>
         </div>
     </section>
 
-    <!-- Resume Analyzer Section -->
     <section class="resume-analyzer-section">
         <div class="resume-analyzer-container">
             <div class="title-area">
                 <h1>Upload Your Resume</h1>
             </div>
             <div class="main">
-                
                 <div class="file-upload">
-                    <input type="file" id="resume-file" accept=".pdf,.doc,.docx,.txt" onchange="updateFileName()">
-                    <label for="resume-file">Choose File</label>
+                    <label for="file-input">Choose File</label>
+                    <input type="file" id="file-input" accept=".pdf,.doc,.docx">
                     <div id="file-name">No file chosen</div>
                 </div>
                 <button onclick="analyzeResume()">Analyze Resume</button>
@@ -53,85 +49,11 @@
                 <h3>Need Help improving Your Resume?</h3>
                 <p>Get personalized assistance from our expert resume builders via WhatsApp!</p>
                 <a href="https://wa.me/+918129917227" class="whatsapp-button" onclick="contactWhatsApp()">Contact Us on WhatsApp</a>
-                <a href="https://wa.me/+918129917227" class="whatsapp-button" onclick="contactWhatsApp()">Book a Free consultaion</a>
+                <a href="https://wa.me/+918129917227" class="whatsapp-button" onclick="contactWhatsApp()">Book a Free consultation</a>
             </div>
         </div>
     </section>
 
-    <script>
-        // Function to update the file name when a file is selected
-        function updateFileName() {
-            var input = document.getElementById('resume-file');
-            var fileName = input.files[0] ? input.files[0].name : 'No file chosen';
-            document.getElementById('file-name').textContent = fileName;
-        }
-
-        // Function to analyze the uploaded resume
-        function analyzeResume() {
-            var fileInput = document.getElementById('resume-file');
-            var analysis = document.getElementById('analysis');
-            
-            if (fileInput.files.length === 0) {
-                alert('Please upload a resume file first.');
-                return;
-            }
-
-            var file = fileInput.files[0];
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                var content = e.target.result;
-                
-                // Simulate analysis (replace with actual analysis in production)
-                var isATSOptimized = file.name.toLowerCase().includes('ats');
-                var totalPages = Math.floor(Math.random() * 4) + 1;
-                var educationSection = content.toLowerCase().includes('education');
-                var skillSection = content.toLowerCase().includes('skills');
-                var experienceSection = content.toLowerCase().includes('experience');
-                var shortlistChance = isATSOptimized ? Math.floor(Math.random() * 31) + 70 : Math.floor(Math.random() * 31);
-
-                var atsExplanation = isATSOptimized 
-                    ? "Your resume appears to be optimized for Applicant Tracking Systems (ATS). This increases your chances of passing initial screenings."
-                    : "Your resume may not be fully optimized for Applicant Tracking Systems (ATS). This could result in your application being overlooked by automated screening processes.";
-
-                var shortlistExplanation = isATSOptimized
-                    ? "Your ATS-optimized resume significantly improves your chances of getting shortlisted. However, there's always room for improvement in a competitive job market."
-                    : "Your current resume might not stand out enough in a competitive job market. Consider revisiting your content and formatting to improve your chances.";
-
-                // Generate analysis HTML
-                analysis.innerHTML = `
-                    <h3>Resume Analysis:</h3>
-                    <div class="analysis-item">
-                        <span>1. Resume Name:</span> ${file.name}
-                    </div>
-                    <div class="analysis-item">
-                        <span>2. Total Pages:</span> ${totalPages} ${totalPages > 2 ? '<span class="bad">(Bad: More than 2 pages)</span>' : '<span class="good">(Good)</span>'}
-                    </div>
-                    <div class="analysis-item">
-                        <span>3. ATS Optimized:</span> ${isATSOptimized ? '<span class="good">Yes</span>' : '<span class="bad">Not Optimized</span>'}
-                        <div class="explanation">${atsExplanation}</div>
-                    </div>
-                    <div class="analysis-item">
-                        <span>4. Sections:</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;Education: ${educationSection ? '<span class="good">Yes</span>' : '<span class="bad">No</span>'}<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;Skills: ${skillSection ? '<span class="good">Yes</span>' : '<span class="bad">No</span>'}<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;Experience: ${experienceSection ? '<span class="good">Yes</span>' : '<span class="bad">No</span>'}
-                    </div>
-                    <div class="analysis-item">
-                        <span>5. Chance of Getting Shortlisted:</span> <span class="${isATSOptimized ? 'good' : 'bad'}">${shortlistChance}%</span>
-                        <div class="explanation">${shortlistExplanation}</div>
-                    </div>
-                `;
-            };
-
-            reader.readAsText(file);
-        }
-
-        // Function to handle WhatsApp contact (placeholder)
-        function contactWhatsApp() {
-            // In a real implementation, this would open WhatsApp with a pre-filled message
-            alert('Connecting to WhatsApp... In a real implementation, this would open a chat with our resume experts.');
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
