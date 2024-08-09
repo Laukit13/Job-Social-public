@@ -1,17 +1,125 @@
+:root {
+  /* Color Palette */
+  --color-primary: #CF4F4C;
+  --color-primary-light: #E57573;
+  --color-primary-dark: #A33E3C;
+  
+  --color-secondary: #480E01;
+  --color-secondary-light: #6A1501;
+  --color-secondary-dark: #2D0901;
+  
+  --color-accent: #25D366; /* WhatsApp green */
+  --color-accent-light: #4BDE84;
+  --color-accent-dark: #1FAA51;
+  
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-text-lighter: #999999;
+  
+  --color-background: #FFFFFF;
+  --color-background-alt: #F5F5F5;
+  --color-background-dark: #E0E0E0;
+  
+  --color-success: #28A745;
+  --color-warning: #FFC107;
+  --color-danger: #DC3545;
+  --color-info: #17A2B8;
+  
+  --color-gray-100: #F8F9FA;
+  --color-gray-200: #E9ECEF;
+  --color-gray-300: #DEE2E6;
+  --color-gray-400: #CED4DA;
+  --color-gray-500: #ADB5BD;
+  --color-gray-600: #6C757D;
+  --color-gray-700: #495057;
+  --color-gray-800: #343A40;
+  --color-gray-900: #212529;
+
+  /* Typography */
+  --font-family: 'Space Grotesk', sans-serif;
+  --font-size-base: 16px;
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem;  /* 36px */
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Spacing System */
+  --spacing-unit: 0.25rem;   /* 4px */
+  --spacing-xs: 0.5rem;      /* 8px */
+  --spacing-sm: 1rem;        /* 16px */
+  --spacing-md: 1.5rem;      /* 24px */
+  --spacing-lg: 2rem;        /* 32px */
+  --spacing-xl: 3rem;        /* 48px */
+  --spacing-2xl: 4rem;       /* 64px */
+
+  /* Component-specific variables */
+  --job-heroes-section-padding: var(--spacing-md);
+  --job-heroes-image-margin-bottom: var(--spacing-md);
+  --job-heroes-title-margin-bottom: var(--spacing-sm);
+  --resume-analyzer-section-padding: var(--spacing-xl) var(--spacing-md);
+  --whatsapp-cta-margin-top: var(--spacing-xl);
+  --whatsapp-cta-padding: var(--spacing-lg);
+}
+
 /* Global Styles */
 body {
-  font-family: 'Space Grotesk', sans-serif;
-  line-height: 1.6;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
   margin: 0;
   padding: 0;
-  background-color: #CF4F4C;
-  color: #ffffff;
+  background-color: var(--color-primary);
+  color: var(--color-background);
 }
+
+/* Typography Utility Classes */
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-md { font-size: var(--font-size-md); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+.text-4xl { font-size: var(--font-size-4xl); }
+
+/* Margin Utility Classes */
+.m-0 { margin: 0; }
+.m-xs { margin: var(--spacing-xs); }
+.m-sm { margin: var(--spacing-sm); }
+.m-md { margin: var(--spacing-md); }
+.m-lg { margin: var(--spacing-lg); }
+.m-xl { margin: var(--spacing-xl); }
+.m-2xl { margin: var(--spacing-2xl); }
+
+.mt-0 { margin-top: 0; }
+.mt-xs { margin-top: var(--spacing-xs); }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+.mt-2xl { margin-top: var(--spacing-2xl); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+.mb-2xl { margin-bottom: var(--spacing-2xl); }
 
 /* Navigation Header Styles */
 .nav-header {
-  background-color: #f8f8f800;
-  padding: 1rem 0;
+  background-color: var(--color-primary-dark);
+  padding: var(--spacing-sm) 0;
   position: relative;
   top: 0;
   z-index: 1000;
@@ -23,12 +131,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 var(--spacing-sm);
 }
 
 .nav-logo {
-  color: #ffffff;
-  font-size: 1.rem;
+  color: var(--color-background);
+  font-size: var(--font-size-xl);
   font-weight: bold;
   text-decoration: none;
 }
@@ -41,79 +149,21 @@ body {
 }
 
 .nav-links li {
-  margin-left: 20px;
+  margin-left: var(--spacing-md);
 }
 
 .nav-links a {
-  color: #ffffff;
+  color: var(--color-background);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: var(--font-size-md);
 }
 
 /* Job Heroes Section Styles */
 .job-heroes-section {
-  background-color: #CF4F4C;
-  height:20px;
-
-  color: #ffffff;
-}
-
-.job-heroes-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.job-heroes-image {
-  width: 5px;
-  max-height: 10px
-  background-color: #E8E8E8;
-}
-
-.job-heroes-content {
-  text-align: center;
-}
-
-.job-heroes-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-.job-heroes-emphasis {
-  color: #480E01;
-}
-
-.job-heroes-cta {
-  display: inline-block;
-  padding: 10px 30px;
-  background-color: #480E01;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.job-heroes-subtitle {
-  font-size: 0.9rem;
-  font-weight: 300;
-}
-
-
-
-
-
-
-
-
-/* Job Heroes Section Styles */
-.job-heroes-section {
-  background-color: #CF4F4C;
-  padding: 40px 20px;
-  color: #ffffff;
-  min-height: 100vh;
+  background-color: var(--color-primary);
+  padding: 120px;
+  color: var(--color-background);
+  min-height: auto;
   display: flex;
   align-items: center;
 }
@@ -129,11 +179,11 @@ body {
 
 .job-heroes-image {
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
   height: auto;
-  background-color: #E8E8E8;
-  border-radius: 20px;
-  margin-bottom: 20px;
+  background-color: var(--color-background);
+  border-radius: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
 }
 
 .job-heroes-content {
@@ -142,36 +192,42 @@ body {
 }
 
 .job-heroes-title {
-  font-size: 2rem;
+  font-size: var(--font-size-3xl);
   font-weight: 700;
-  margin-bottom: 20px;
-  line-height: 1.2;
+  margin-bottom: var(--job-heroes-title-margin-bottom);
+  line-height: var(--line-height-tight);
 }
 
 .job-heroes-emphasis {
-  color: #480E01;
+  color: var(--color-secondary-light);
 }
 
 .job-heroes-cta {
   display: inline-block;
-  padding: 10px 30px;
-  background-color: #480E01;
-  color: #ffffff;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-secondary);
+  color: var(--color-background);
   text-decoration: none;
-  border-radius: 25px;
+  border-radius: var(--spacing-xl);
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: var(--spacing-xs);
+  transition: background-color 0.3s ease;
+}
+
+.job-heroes-cta:hover {
+  background-color: var(--color-secondary-light);
 }
 
 .job-heroes-subtitle {
-  font-size: 0.9rem;
+  font-size: var(--font-size-sm);
   font-weight: 300;
+  margin-top: var(--spacing-xs);
 }
 
 /* Resume Analyzer Section Styles */
 .resume-analyzer-section {
-  background-color: #480E01;
-  padding: 60px 20px;
+  background-color: var(--color-secondary);
+  padding: var(--resume-analyzer-section-padding);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -185,32 +241,32 @@ body {
 
 .title-area {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-lg);
 }
 
 .title-area h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: var(--font-size-3xl);
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-background);
 }
 
 .main {
-  background: #FFFFFF;
-  padding: 30px;
-  border-radius: 10px;
+  background: var(--color-background);
+  padding: var(--spacing-md);
+  border-radius: var(--spacing-sm);
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  color: #333333;
+  color: var(--color-text);
 }
 
 .main h2 {
-  color: #480E01;
+  color: var(--color-secondary);
   margin-top: 0;
   text-align: center;
 }
 
 .file-upload {
-  margin: 30px 0;
+  margin: var(--spacing-lg) 0;
   text-align: center;
 }
 
@@ -220,99 +276,147 @@ body {
 
 .file-upload label {
   display: inline-block;
-  padding: 12px 30px;
-  background-color: #CF4F4C;
-  color: #FFFFFF;
-  border-radius: 25px;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  border-radius: var(--spacing-xl);
   cursor: pointer;
   font-weight: 500;
   transition: background-color 0.3s ease;
 }
 
 .file-upload label:hover {
-  background-color: #bb3e3b;
+  background-color: var(--color-primary-light);
 }
 
 #file-name {
-  margin-top: 10px;
+  margin-top: var(--spacing-xs);
   font-style: italic;
   font-weight: 300;
-  color: #666666;
+  color: var(--color-text-light);
 }
 
 button {
   display: block;
   width: 100%;
-  padding: 12px;
-  margin-top: 20px;
-  background-color: #CF4F4C;
-  color: #FFFFFF;
+  padding: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  background-color: var(--color-primary);
+  color: var(--color-background);
   border: none;
-  border-radius: 25px;
+  border-radius: var(--spacing-xl);
   cursor: pointer;
   font-weight: 600;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-family);
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #bb3e3b;
+  background-color: var(--color-primary-light);
 }
 
 #analysis {
-  margin-top: 30px;
-  padding: 20px;
-  background-color: #F0F0F0;
-  border-radius: 10px;
-  color: #333333;
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background-color: var(--color-background-alt);
+  border-radius: var(--spacing-sm);
+  color: var(--color-text);
 }
 
 .analysis-item {
-  margin-bottom: 15px;
+  margin-bottom: var(--spacing-sm);
 }
 
 .analysis-item span {
   font-weight: bold;
 }
 
-.bad {
-  color: #D32F2F;
+.good {
+  color: var(--color-success);
 }
 
-.good {
-  color: #388E3C;
+.bad {
+  color: var(--color-danger);
 }
 
 .explanation {
   font-style: italic;
-  margin-top: 5px;
-  font-size: 0.9em;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-sm);
 }
 
+.cta {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-sm);
+  background-color: var(--color-background-alt);
+  border-radius: var(--spacing-xs);
+  text-align: center;
+}
+
+.cta button {
+  margin-top: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  border: none;
+  border-radius: var(--spacing-xs);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cta button:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* WhatsApp CTA Styles */
 .whatsapp-cta {
   text-align: center;
-  margin-top: 40px;
-  padding: 30px;
-  background-color: #2ffa6f;
-  border-radius: 10px;
-  color: #000000;
+  margin-top: var(--whatsapp-cta-margin-top);
+  padding: var(--whatsapp-cta-padding);
+  background-color: var(--color-background);
+  border-radius: var(--spacing-sm);
+  color: var(--color-text);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp-cta h3 {
+  color: var(--color-primary);
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-xl);
+}
+
+.whatsapp-cta p {
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
 }
 
 .whatsapp-button {
-  background-color: #ffffff;
-  color: #000000;
-  padding: 12px 10px;
-  width: 100%;
+  color: var(--color-background);
+  padding: var(--spacing-sm) var(--spacing-xs);
   text-decoration: none;
-  border-radius: 25px;
-  display: inline-block;
-  margin-top: 15px;
+  border-radius: var(--spacing-xl);
+  display: block;
+  margin-top: var(--spacing-xs);
   font-weight: bold;
   transition: background-color 0.3s ease;
+  width: 100%;
 }
 
-.whatsapp-button:hover {
-  background-color: #F0F0F0;
+.whatsapp-button:first-of-type {
+  background-color: var(--color-accent);
+}
+
+.whatsapp-button:first-of-type:hover {
+  background-color: var(--color-accent-dark);
+}
+
+.whatsapp-button:last-of-type {
+  background-color: var(--color-primary);
+}
+
+.whatsapp-button:last-of-type:hover {
+  background-color: var(--color-primary-dark);
 }
 
 /* Responsive Styles */
@@ -323,15 +427,8 @@ button:hover {
       align-items: center;
   }
   .job-heroes-image {
-      width: 50%;
-      margin-bottom: 0;
-      margin-right: 40px;
-  }
-  .job-heroes-content {
       width: 40%;
-      text-align: left;
+      margin-bottom: 0;
+      margin-right: var(--spacing-lg);
   }
-  .job-heroes-title {
-      font-size: 2.5rem;
-  }
-}
+  .job-heroes-content
