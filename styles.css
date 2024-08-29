@@ -64,7 +64,7 @@ body, html {
     border: 3px solid #cccacd;
     flex: 0 0 auto;
     width: 180px;
-    height: 120px;
+    height: 160px;
     background-size: cover;
     background-position: center;
     border-radius: 14px;
@@ -113,14 +113,14 @@ body, html {
 }
 
 .area-title {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 500;
     color: #6a6a6a;
     padding-bottom: 6px;
 }
 
 .area-location {
-    font-size: 14px;
+    font-size: 16px;
     display: flex;
     font-weight: 300;
     align-items: center;
@@ -152,6 +152,44 @@ body, html {
     align-items: center;
     justify-content: center;
     font-size: 14px;
+}
+
+.area-content {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.area-info {
+    flex-grow: 1;
+}
+
+.area-cta {
+    background-color: #8A2BE2; /* Purple color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove underline from link */
+    display: inline-block; /* Make link behave like a button */
+}
+
+.area-cta:hover {
+    background-color: #9A4EF1; /* Lighter purple on hover */
+}
+
+
+
+
+
+/* Adjust existing styles */
+.area-title, .area-location, .area-price {
+    margin-bottom: 5px;
 }
 
 /* Expanded View Styles */

@@ -7,8 +7,15 @@ const featuredListings = [
     {
        image: "image/Guide2.png"
     },
+
+    {
+        image: "image/Guide3.png"
+     },
     // Add more featured listings here
 ];
+
+
+
 
 const areaListings = [
     {
@@ -48,7 +55,7 @@ function createFeatureCard(listing) {
 // Function to create area cards
 function createAreaCard(listing) {
     return `
-        <div class="area-card" onclick="openExpandedView(this)">
+        <div class="area-card" onclick="openExpandedView(this, event)">
             <div style="position: relative;">
                 <img src="${listing.image}" alt="${listing.title}" class="area-image">
                 <div class="area-icons">
@@ -57,11 +64,15 @@ function createAreaCard(listing) {
                 </div>
             </div>
             <div class="area-content">
-                <div class="area-title">${listing.title}</div>
-                <div class="area-location">
-                    ${listing.location}
+                <div class="area-info">
+                    <div class="area-title">${listing.title}</div>
+                    <div class="area-location">
+                        <span class="location-icon">📍</span>
+                        ${listing.location}
+                    </div>
+                    <div class="area-price">${listing.price}</div>
                 </div>
-                <div class="area-price">${listing.price}</div>
+                <a href="tel:+918129917227" class="area-cta" onclick="event.stopPropagation()">Call Now</a>
             </div>
         </div>
     `;
