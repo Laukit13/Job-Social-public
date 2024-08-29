@@ -3,56 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareerBoost - Resume Analyzer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Rommies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="nav-header">
-        <nav class="nav-container">
-            <a href="#" class="nav-logo">CareerBoost</a>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="job-heroes-section">
-        <div class="job-heroes-container">
-            <img src="image/3dresume.png" alt="Job Heroes" class="job-heroes-image">
-            <div class="job-heroes-content">
-                <h2 class="job-heroes-title">Does your resume work for <span class="job-heroes-emphasis">Landing Interviews?</span></h2>
-                <a href="#" class="job-heroes-cta">Check for free</a>
-                <p class="job-heroes-subtitle">Scroll down to upload</p>
+    <div class="container" id="listingPage">
+        <div class="header">
+            <img src="image/logo.png" alt="Rommies Logo" class="logo">
+            <button class="filter-btn">⚙️</button>
+        </div>
+        <div class="features">
+            <div class="feature-title">Get Started Here</div>
+            <div class="feature-cards" id="featureCards">
+                <!-- Feature cards will be dynamically added here -->
             </div>
         </div>
-    </section>
+        <div class="in-your-area">
+            <div class="feature-title">Closing Soon</div>
+            <div id="areaCards">
 
-    <section class="resume-analyzer-section">
-        <div class="resume-analyzer-container">
-            <div class="title-area">
-                <h1>Upload Your Resume</h1>
-            </div>
-            <div class="main">
-                <div class="file-upload">
-                    <label for="file-input">Choose File</label>
-                    <input type="file" id="file-input" accept=".pdf,.doc,.docx">
-                    <div id="file-name">No file chosen</div>
-                </div>
-                <button onclick="analyzeResume()">Analyze Resume</button>
-                <div id="analysis"></div>
-            </div>
-            <div class="whatsapp-cta">
-                <h3>Need Help improving Your Resume?</h3>
-                <p>Get personalized assistance from our expert resume builders via WhatsApp!</p>
-                <a href="https://wa.me/+918129917227" class="whatsapp-button" onclick="contactWhatsApp()">Contact Us on WhatsApp</a>
-                <a href="https://wa.me/+918129917227" class="whatsapp-button" onclick="contactWhatsApp()">Book a Free consultation</a>
+                <button class="back-button" onclick="closeExpandedView()">←</button>
+                <!-- Area cards will be dynamically added here -->
             </div>
         </div>
-    </section>
+    </div>
+    
+    <div class="expanded-view" id="expandedView">
+        <div class="image-gallery">
+            <img src="image/indiranagar2.png" alt="Apartment Interior" class="gallery-image">
+            <button class="back-button" onclick="closeExpandedView()">←</button>
+            <button class="favorite-button">♥</button>
+            <div class="gallery-nav">
+                <div class="gallery-dot active"></div>
+                <div class="gallery-dot"></div>
+                <div class="gallery-dot"></div>
+            </div>
+        </div>
+        <div class="listing-details">
+            <div class="listing-price"></div>
+            <h2 class="listing-title"></h2>
+            <p class="listing-location"></p>
+            </div>
+            <h3>Features</h3>
+            <ul class="features-list">
+                <li class="feature-item">
+                    🚇 1 km from Indiranagar Metro Station<br />
+                    ⚡ Power backup and no water issues<br />
+                    🏢 Gated apartment with proper security<br />
+                </li>
+
+                <h3>Features</h3>
+                <ul class="features-list">
+                    <li class="feature-item">
+                        Room includes a double bed with mattress, wardrobe and attached washroom with geyser.<br /><br />
+Common space has a sofa, dining table, and a coffee table.
+Kitchen setup is already there (includes stove, fridge, utensils, etc).
+No initial setup cost.
+                    </li>
+               
+    </div>
 
     <script src="script.js"></script>
 </body>

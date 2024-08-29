@@ -1,74 +1,142 @@
-// File upload functionality
-const fileInput = document.getElementById('file-input');
-const fileName = document.getElementById('file-name');
-const analyzeButton = document.querySelector('button');
-let fileContent = '';
+// Listing data
+const featuredListings = [
+    {
+       image: "image/Guide1.png"
+    },
 
-fileInput.addEventListener('change', function(e) {
-    if (e.target.files.length > 0) {
-        fileName.textContent = e.target.files[0].name;
-        analyzeButton.disabled = false;
-    } else {
-        fileName.textContent = 'No file chosen';
-        analyzeButton.disabled = true;
-    }
-});
+    {
+       image: "image/Guide2.png"
+    },
+    // Add more featured listings here
+];
 
-function isATSOptimized(filename) {
-    return filename.toLowerCase().includes('ats');
-}
+const areaListings = [
+    {
+        title: "🏠 Private Room in 2BHK",
+        location: "Domlur, Indiranagar",
+        price: "Rent : ₹17,000",
+        image: "image/indiranagar1.png"
+    },
 
-function analyzeResume() {
-    const analysis = document.getElementById('analysis');
-    const resumeName = fileName.textContent;
-    const totalPages = 2; // This would ideally be determined by analyzing the actual file
-    const atsOptimized = isATSOptimized(resumeName);
-    const sections = {
-        education: Math.random() < 0.5, // Randomly determine if section exists for demo
-        skills: Math.random() < 0.5,
-        experience: Math.random() < 0.5
-    };
-    const shortlistChance = atsOptimized ? Math.floor(Math.random() * 30) + 70 : Math.floor(Math.random() * 30) + 1;
+    {
+        title: "🏠 Private Room in 2BHK",
+        location: "Near Metro,JP Nagar",
+        price: "Rent : ₹14,500",
+        image: "image/jpnagar1.png"
+    },
 
-    analysis.innerHTML = `
-        <h2>Resume Analysis:</h2>
-        <div class="analysis-item">
-            <span>1. Resume Name:</span> ${resumeName}
-        </div>
-        <div class="analysis-item">
-            <span>2. Total Pages:</span> <span class="${totalPages <= 2 ? 'good' : 'bad'}">${totalPages} (${totalPages <= 2 ? 'Good' : 'Too Long'})</span>
-        </div>
-        <div class="analysis-item">
-            <span>3. ATS Optimized:</span> <span class="${atsOptimized ? 'good' : 'bad'}">${atsOptimized ? 'Optimized' : 'Not Optimized'}</span>
-            <p class="explanation">${atsOptimized ? 'Your resume appears to be optimized for Applicant Tracking Systems.' : 'Your resume may not be fully optimized for Applicant Tracking Systems (ATS). This could result in your application being overlooked by automated screening processes.'}</p>
-        </div>
-        <div class="analysis-item">
-            <span>4. Sections:</span>
-            <br>Education: <span class="${sections.education ? 'good' : 'bad'}">${sections.education ? 'Yes' : 'No'}</span>
-            <br>Skills: <span class="${sections.skills ? 'good' : 'bad'}">${sections.skills ? 'Yes' : 'No'}</span>
-            <br>Experience: <span class="${sections.experience ? 'good' : 'bad'}">${sections.experience ? 'Yes' : 'No'}</span>
-        </div>
-        <div class="analysis-item">
-            <span>5. Chance of Getting Shortlisted:</span> <span class="${shortlistChance > 50 ? 'good' : 'bad'}">${shortlistChance}%</span>
-            <p class="explanation">${shortlistChance > 50 ? 'Your resume has a good chance of standing out in a competitive job market.' : 'Your current resume might not stand out enough in a competitive job market. Consider revisiting your content and formatting to improve your chances.'}</p>
+    {
+        title: "🏠 Private Room in 2BHK",
+        location: "Domlur, Indiranagar",
+        price: "₹17,000",
+        image: "image/indiranagar2.png"
+    },
+    // Add more area listings here
+];
+
+// Function to create feature cards
+function createFeatureCard(listing) {
+    return `
+        <div class="feature-card" style="background-image: url('${listing.image}');">
+            <div class="card-content">
+                </div>
+            </div>
         </div>
     `;
+}
 
-    if (!atsOptimized) {
-        analysis.innerHTML += `
-            <div class="cta">
-                <p>Your resume may not be ATS-optimized. Let us help you create a resume that will increase your chances of landing a job.</p>
-                <button onclick="contactUs()">Get Professional Help</button>
+// Function to create area cards
+function createAreaCard(listing) {
+    return `
+        <div class="area-card" onclick="openExpandedView(this)">
+            <div style="position: relative;">
+                <img src="${listing.image}" alt="${listing.title}" class="area-image">
+                <div class="area-icons">
+                    <div class="area-icon">📷</div>
+                    <div class="area-icon">❤️</div>
+                </div>
             </div>
-        `;
+            <div class="area-content">
+                <div class="area-title">${listing.title}</div>
+                <div class="area-location">
+                    ${listing.location}
+                </div>
+                <div class="area-price">${listing.price}</div>
+            </div>
+        </div>
+    `;
+}
+
+// Populate listings
+document.addEventListener('DOMContentLoaded', () => {
+    const featureCardsContainer = document.getElementById('featureCards');
+    const areaCardsContainer = document.getElementById('areaCards');
+
+    featuredListings.forEach(listing => {
+        featureCardsContainer.innerHTML += createFeatureCard(listing);
+    });
+
+    areaListings.forEach(listing => {
+        areaCardsContainer.innerHTML += createAreaCard(listing);
+    });
+});
+
+// Open expanded view
+function openExpandedView(card) {
+    document.getElementById('listingPage').style.display = 'none';
+    document.getElementById('expandedView').style.display = 'block';
+    
+    const title = card.querySelector('.area-title').textContent;
+    const location = card.querySelector('.area-location').textContent;
+    const price = card.querySelector('.area-price').textContent;
+    
+    document.querySelector('#expandedView .listing-title').textContent = title;
+    document.querySelector('#expandedView .listing-location').textContent = location;
+    document.querySelector('#expandedView .listing-price').textContent = price;
+}
+
+// Close expanded view
+function closeExpandedView() {
+    document.getElementById('expandedView').style.display = 'none';
+    document.getElementById('listingPage').style.display = 'block';
+}
+
+// Image gallery functionality
+const galleryImage = document.querySelector('.gallery-image');
+const galleryDots = document.querySelectorAll('.gallery-dot');
+const images = ['path_to_image1.jpg', 'path_to_image2.jpg', 'path_to_image3.jpg']; // Replace with actual image URLs
+let currentImageIndex = 0;
+
+function updateGallery() {
+    galleryImage.src = images[currentImageIndex];
+    galleryDots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentImageIndex);
+    });
+}
+
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    updateGallery();
+}
+
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    updateGallery();
+}
+
+// Add touch event listeners for swiping
+let touchStartX = 0;
+let touchEndX = 0;
+
+galleryImage.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+galleryImage.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) {
+        nextImage();
+    } else if (touchEndX - touchStartX > 50) {
+        prevImage();
     }
-}
-
-function contactUs() {
-    window.location.href = 'https://wa.me/+918129917227';
-}
-
-function contactWhatsApp() {
-    console.log('Contacting via WhatsApp');
-    // The actual redirection is handled by the href attribute in the HTML
-}
+});
