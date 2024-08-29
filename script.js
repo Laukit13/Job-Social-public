@@ -19,14 +19,14 @@ const featuredListings = [
 
 const areaListings = [
     {
-        title: "🏠 Private Room in 2BHK",
+        title: "Male Flatmate - 2BHK",
         location: "Domlur, Indiranagar",
         price: "Rent : ₹17,000",
         image: "image/indiranagar1.png"
     },
 
     {
-        title: "🏠 Private Room in 2BHK",
+        title: "Female Flatmate - 3BHK",
         location: "Near Metro,JP Nagar",
         price: "Rent : ₹14,500",
         image: "image/jpnagar1.png"
@@ -67,7 +67,6 @@ function createAreaCard(listing) {
                 <div class="area-info">
                     <div class="area-title">${listing.title}</div>
                     <div class="area-location">
-                        <span class="location-icon">📍</span>
                         ${listing.location}
                     </div>
                     <div class="area-price">${listing.price}</div>
