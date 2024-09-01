@@ -2,66 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Rommies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomies</title>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container" id="listingPage">
-        <div class="header">
-            <img src="image/logo.png" alt="Rommies Logo" class="logo">
+    <div class="container">
+        <header class="header">
+            <img src="image/logo.png" alt="Roomies Logo" class="logo">
             <button class="filter-btn">⚙️</button>
-        </div>
-        <div class="features">
-            <div class="feature-title">Get Started Here</div>
-            <div class="feature-cards" id="featureCards">
-                <!-- Feature cards will be dynamically added here -->
-            </div>
-        </div>
-        <div class="in-your-area">
-            <div class="feature-title">Closing Soon</div>
-            <div id="areaCards">
+        </header>
 
-                <button class="back-button" onclick="closeExpandedView()">←</button>
-                <!-- Area cards will be dynamically added here -->
-            </div>
-        </div>
+        <main role="main">
+            <section class="section features">
+                <h2 id="get-started-here" class="section-title">Get Started Here</h2>
+                <div id="featureCards" class="feature-cards"></div>
+            </section>
+
+            <section class="section in-your-area">
+                <h2 id="closing-soon" class="section-title">Closing Soon</h2>
+                <div id="areaCards" class="area-cards"></div>
+            </section>
+        </main>
     </div>
-    
-    <div class="expanded-view" id="expandedView">
+
+    <div id="expandedView" class="expanded-view">
         <div class="image-gallery">
-            <img src="image/indiranagar2.png" alt="Apartment Interior" class="gallery-image">
+            <img id="galleryImage" src="" alt="Listing Image" class="gallery-image">
             <button class="back-button" onclick="closeExpandedView()">←</button>
             <button class="favorite-button">♥</button>
             <div class="gallery-nav">
-                <div class="gallery-dot active"></div>
-                <div class="gallery-dot"></div>
-                <div class="gallery-dot"></div>
+                <span class="gallery-dot active"></span>
+                <span class="gallery-dot"></span>
+                <span class="gallery-dot"></span>
             </div>
         </div>
         <div class="listing-details">
-            <div class="listing-price"></div>
-            <h2 class="listing-title"></h2>
-            <p class="listing-location"></p>
-            </div>
+            <div id="listingPrice" class="listing-price"></div>
+            <h2 id="listingTitle" class="listing-title"></h2>
             <h3>Features</h3>
             <ul class="features-list">
-                <li class="feature-item">
-                    🚇 1 km from Indiranagar Metro Station<br />
-                    ⚡ Power backup and no water issues<br />
-                    🏢 Gated apartment with proper security<br />
-                </li>
-
-                <h3>Features</h3>
-                <ul class="features-list">
-                    <li class="feature-item">
-                        Room includes a double bed with mattress, wardrobe and attached washroom with geyser.<br /><br />
-Common space has a sofa, dining table, and a coffee table.
-Kitchen setup is already there (includes stove, fridge, utensils, etc).
-No initial setup cost.
-                    </li>
-               
+                <li class="feature-item">🚇 1 km from Indiranagar Metro Station</li>
+                <li class="feature-item">⚡ Power backup and no water issues</li>
+                <li class="feature-item">🏢 Gated apartment with proper security</li>
+            </ul>
+            <h3>Description</h3>
+            <p>Room includes a double bed with mattress, wardrobe and attached washroom with geyser. Common space has a sofa, dining table, and a coffee table. Kitchen setup is already there (includes stove, fridge, utensils, etc). No initial setup cost.</p>
+        </div>
     </div>
 
     <script src="script.js"></script>

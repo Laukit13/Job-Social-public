@@ -1,21 +1,10 @@
 // Listing data
 const featuredListings = [
-    {
-       image: "image/Guide1.png"
-    },
-
-    {
-       image: "image/Guide2.png"
-    },
-
-    {
-        image: "image/Guide3.png"
-     },
-    // Add more featured listings here
+    { image: "image/Guide1.png", title: "How to Find Flatmates Fast Within 2 Days" },
+    { image: "image/Guide2.png", title: "How to be Safe when Flat Hunting" },
+    { image: "image/Guide3.png", title: "Top 10 Areas for Flatmates in Bangalore" },
+    { image: "image/Guide4.png", title: "How to Save Money on Rent" },
 ];
-
-
-
 
 const areaListings = [
     {
@@ -24,29 +13,24 @@ const areaListings = [
         price: "Rent : ₹17,000",
         image: "image/indiranagar1.png"
     },
-
     {
         title: "Female Flatmate - 3BHK",
-        location: "Near Metro,JP Nagar",
+        location: "Near Metro, JP Nagar",
         price: "Rent : ₹14,500",
         image: "image/jpnagar1.png"
     },
-
     {
         title: "🏠 Private Room in 2BHK",
         location: "Domlur, Indiranagar",
         price: "₹17,000",
         image: "image/indiranagar2.png"
     },
-    // Add more area listings here
 ];
 
 // Function to create feature cards
 function createFeatureCard(listing) {
     return `
         <div class="feature-card" style="background-image: url('${listing.image}');">
-            <div class="card-content">
-                </div>
             </div>
         </div>
     `;
@@ -55,7 +39,7 @@ function createFeatureCard(listing) {
 // Function to create area cards
 function createAreaCard(listing) {
     return `
-        <div class="area-card" onclick="openExpandedView(this, event)">
+        <div class="area-card" onclick="openExpandedView(this)">
             <div style="position: relative;">
                 <img src="${listing.image}" alt="${listing.title}" class="area-image">
                 <div class="area-icons">
@@ -66,9 +50,7 @@ function createAreaCard(listing) {
             <div class="area-content">
                 <div class="area-info">
                     <div class="area-title">${listing.title}</div>
-                    <div class="area-location">
-                        ${listing.location}
-                    </div>
+                    <div class="area-location">${listing.location}</div>
                     <div class="area-price">${listing.price}</div>
                 </div>
                 <a href="tel:+918129917227" class="area-cta" onclick="event.stopPropagation()">Call Now</a>
@@ -93,44 +75,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Open expanded view
 function openExpandedView(card) {
-    document.getElementById('listingPage').style.display = 'none';
-    document.getElementById('expandedView').style.display = 'block';
-    
+    const expandedView = document.getElementById('expandedView');
     const title = card.querySelector('.area-title').textContent;
     const location = card.querySelector('.area-location').textContent;
     const price = card.querySelector('.area-price').textContent;
+    const image = card.querySelector('.area-image').src;
     
-    document.querySelector('#expandedView .listing-title').textContent = title;
-    document.querySelector('#expandedView .listing-location').textContent = location;
-    document.querySelector('#expandedView .listing-price').textContent = price;
+    document.getElementById('galleryImage').src = image;
+    document.getElementById('listingTitle').textContent = title;
+    document.getElementById('listingPrice').textContent = price;
+    
+    expandedView.classList.add('active');
 }
 
 // Close expanded view
 function closeExpandedView() {
-    document.getElementById('expandedView').style.display = 'none';
-    document.getElementById('listingPage').style.display = 'block';
+    const expandedView = document.getElementById('expandedView');
+    expandedView.classList.remove('active');
 }
 
 // Image gallery functionality
 const galleryImage = document.querySelector('.gallery-image');
 const galleryDots = document.querySelectorAll('.gallery-dot');
-const images = ['path_to_image1.jpg', 'path_to_image2.jpg', 'path_to_image3.jpg']; // Replace with actual image URLs
 let currentImageIndex = 0;
 
 function updateGallery() {
-    galleryImage.src = images[currentImageIndex];
     galleryDots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentImageIndex);
     });
 }
 
 function nextImage() {
-    currentImageIndex = (currentImageIndex + 1) % images.length;
+    currentImageIndex = (currentImageIndex + 1) % areaListings.length;
+    galleryImage.src = areaListings[currentImageIndex].image;
     updateGallery();
 }
 
 function prevImage() {
-    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    currentImageIndex = (currentImageIndex - 1 + areaListings.length) % areaListings.length;
+    galleryImage.src = areaListings[currentImageIndex].image;
     updateGallery();
 }
 
@@ -150,3 +133,34 @@ galleryImage.addEventListener('touchend', e => {
         prevImage();
     }
 });
+
+// Initialize gallery dots
+updateGallery();
+
+// Add event listeners for gallery navigation
+document.querySelector('.back-button').addEventListener('click', closeExpandedView);
+document.querySelector('.favorite-button').addEventListener('click', () => {
+    // Implement favorite functionality here
+    console.log('Favorite button clicked');
+});
+
+// Optional: Implement scroll-based loading for area listings
+let page = 1;
+const loadMoreThreshold = 100; // pixels from bottom of page
+
+window.addEventListener('scroll', () => {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - loadMoreThreshold) {
+        loadMoreListings();
+    }
+});
+
+function loadMoreListings() {
+    // Implement API call or data loading logic here
+    console.log('Loading more listings...');
+    // Example: 
+    // fetchMoreListings(page++).then(newListings => {
+    //     newListings.forEach(listing => {
+    //         areaCardsContainer.innerHTML += createAreaCard(listing);
+    //     });
+    // });
+}
